@@ -5,6 +5,9 @@
  */
 package dictionary;
 
+import conectionDB.Conection;
+import java.sql.Connection;
+
 /**
  *
  * @author StoomBassCow
@@ -14,8 +17,13 @@ public class TranslateApp extends javax.swing.JFrame {
     /**
      * Creates new form TranslateApp
      */
+    Methods Test = new Methods();
+    Conection con = new Conection();
+    
     public TranslateApp() {
         initComponents();
+        setLocationRelativeTo(null);
+        this.setTitle("Translate");
     }
 
     /**
@@ -36,8 +44,18 @@ public class TranslateApp extends javax.swing.JFrame {
         tfld_Word.setText("jTextField1");
 
         btn_Translate.setText("jButton1");
+        btn_Translate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_TranslateActionPerformed(evt);
+            }
+        });
 
         btn_Clear.setText("jButton2");
+        btn_Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,6 +85,22 @@ public class TranslateApp extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_TranslateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TranslateActionPerformed
+        // TODO add your handling code here:
+        
+         String W = tfld_Word.getText();
+        tfld_Word.setText(Test.getWord(W));
+        Connection reg = con.getConnection();
+        
+        //tard_resultado.setText(W);
+  
+    }//GEN-LAST:event_btn_TranslateActionPerformed
+
+    private void btn_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClearActionPerformed
+        // TODO add your handling code here:
+        tfld_Word.setText("");
+    }//GEN-LAST:event_btn_ClearActionPerformed
 
     /**
      * @param args the command line arguments
