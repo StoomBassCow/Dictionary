@@ -32,14 +32,17 @@ public class Methods {
 
     public String sintagmaNominal() {
 
-        /*
-        String sSQL = "SELECT nombre, edad, profesión, ciudad "
-                    + "FROM personas "
-                    + "WHERE ciudad = '" + sCiudad 
-                    + "'AND edad BETWEEN " + sEdad1 + " AND " + sEdad1 + ";"
         
-         */
-        // = conn.prepareStatement("SELECT nombre, edad, profesion, ciudad FROM Personas WHERE edad > ? AND ciudad = ?");
+        return "";
+    }
+    public String sintagmaPrepocicional() {
+
+        
+        return "";
+    }
+    public String sintagmaAdjetival() {
+
+        
         return "";
     }
 
