@@ -58,6 +58,11 @@ public class Methods {
         
         return "";
     }
+    public String Prueba() {
+
+        
+        return "";
+    }
  
 
 }
