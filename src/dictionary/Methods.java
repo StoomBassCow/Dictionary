@@ -13,7 +13,10 @@ public class Methods {
 
     String finalWord = "";
     String separateWord[];
-
+    private final String SQL_SELECT = "SELECT * FROM palabras";
+    
+    
+    
     /*Con este metodo separamos las palabras mediante un espacio " " y luego, 
     pasamos a agregar cada una de las palabras previamente separadas en un
     arreglo de tipo cadema, el cual nos servira para apilar cada una de estas
@@ -26,7 +29,7 @@ public class Methods {
         for (int i = 0; i < separateWord.length; i++) {
             System.out.println("Posicion " + i + " la palabra es: " + separateWord[i]);
         }
-
+        
         return " ";
     }
 
@@ -45,5 +48,16 @@ public class Methods {
         
         return "";
     }
+    public String sintagmaAdverbial() {
+
+        
+        return "";
+    }
+    public String sintagmaVerbal() {
+
+        
+        return "";
+    }
+ 
 
 }

@@ -6,7 +6,7 @@
 package dictionary;
 
 import conectionDB.Conection;
-import java.sql.Connection;
+import java.sql.*;
 
 /**
  *
