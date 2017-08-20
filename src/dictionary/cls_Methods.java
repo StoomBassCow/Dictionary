@@ -9,7 +9,7 @@ package dictionary;
  *
  * @author StoomBassCow
  */
-public class Methods {
+public class cls_Methods {
 
     String finalWord = "";
     String separateWord[];

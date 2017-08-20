@@ -5,22 +5,22 @@
  */
 package dictionary;
 
-import conectionDB.Conection;
+import conectionDB.cls_Conection;
 import java.sql.*;
 
 /**
  *
  * @author StoomBassCow
  */
-public class TranslateForm extends javax.swing.JFrame {
+public class frm_translateForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form TranslateForm
+     * Creates new form frm_translateForm
      */
-    Methods Test = new Methods();
-    Conection con = new Conection();
+    cls_Methods Test = new cls_Methods();
+    cls_Conection con = new cls_Conection();
     
-    public TranslateForm() {
+    public frm_translateForm() {
         initComponents();
         setLocationRelativeTo(null);
         this.setTitle("Translate");
@@ -154,21 +154,23 @@ public class TranslateForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TranslateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_translateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TranslateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_translateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TranslateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_translateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TranslateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_translateForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TranslateForm().setVisible(true);
+                new frm_translateForm().setVisible(true);
             }
         });
     }

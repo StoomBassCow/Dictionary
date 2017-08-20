@@ -9,7 +9,7 @@ package dictionary;
  *
  * @author StoomBassCow
  */
-public class Dictionary {
+public class cls_mainDictionary {
 
     /**
      * @param args the command line arguments
@@ -17,7 +17,7 @@ public class Dictionary {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        TranslateForm frm = new TranslateForm();
+        frm_translateForm frm = new frm_translateForm();
         
         frm.show(true);
     }

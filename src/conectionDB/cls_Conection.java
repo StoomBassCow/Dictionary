@@ -13,19 +13,19 @@ import java.sql.SQLException;
  *
  * @author StoomBassCow
  */
-public class Conection {
+public class cls_Conection {
 
     private static Connection conn;
-    private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String user = "root";
-    private static final String password = "";
-    private static final String url = "jdbc:mysql://localhost:3306/palabras";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
+    private static final String URL = "jdbc:mysql://localhost:3306/palabras";
 
-    public Conection() {
+    public cls_Conection() {
         conn = null;
         try {
-            Class.forName(driver);
-            conn = DriverManager.getConnection(url, user, password);
+            Class.forName(DRIVER);
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
             if (conn != null) {
 
