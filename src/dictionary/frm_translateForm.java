@@ -5,6 +5,7 @@
  */
 package dictionary;
 
+import Consultas.cls_Querys;
 import conectionDB.cls_Conection;
 import java.sql.*;
 
@@ -19,6 +20,7 @@ public class frm_translateForm extends javax.swing.JFrame {
      */
     cls_Methods Test = new cls_Methods();
     cls_Conection con = new cls_Conection();
+    cls_Querys QR = new cls_Querys();
     
     public frm_translateForm() {
         initComponents();
@@ -129,6 +131,8 @@ public class frm_translateForm extends javax.swing.JFrame {
         Connection reg = con.getConnection();
         
         tfld_Result.setText(W);
+        QR.getDatos();
+        
   
     }//GEN-LAST:event_btn_TranslateActionPerformed
 

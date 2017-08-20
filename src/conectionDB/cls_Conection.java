@@ -36,7 +36,7 @@ public class cls_Conection {
         } catch (ClassNotFoundException | SQLException e) {
 
             System.out.println("Conexion fallida" 
-                    + "\n" + "El error de la conexion es: " + e);
+                    + "\n" + "El error de la conexion es: " + e.getMessage());
 
         }
     }

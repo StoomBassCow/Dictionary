@@ -58,11 +58,7 @@ public class cls_Methods {
         
         return "";
     }
-    public String Prueba() {
-
-        
-        return "";
-    }
+    
  
 
 }
