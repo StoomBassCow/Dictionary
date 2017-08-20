@@ -18,7 +18,7 @@ public class Conection {
     private static Connection conn;
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String user = "root";
-    private static final String password = "admin12345";
+    private static final String password = "";
     private static final String url = "jdbc:mysql://localhost:3306/palabras";
 
     public Conection() {
@@ -35,7 +35,8 @@ public class Conection {
 
         } catch (ClassNotFoundException | SQLException e) {
 
-            System.out.println("Conexion fallida" + e);
+            System.out.println("Conexion fallida" 
+                    + "\n" + "El error de la conexion es: " + e);
 
         }
     }
