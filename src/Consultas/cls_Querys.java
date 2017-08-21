@@ -15,7 +15,8 @@ import java.sql.SQLException;
  * @author StoomBassCow
  */
 public class cls_Querys {
-    private final String SELECT_SQL = "SELECT * FROM palabras WHERE palabra LIKE'%\"+huyen+\"%'"; 
+    //private final String SELECT_SQL = "SELECT * FROM palabras WHERE palabra LIKE'%\"+huyen+\"%'"; 
+    private final String SELECT_SQL = "SELECT * FROM palabras"; 
     private ResultSet RS;
     private PreparedStatement PS;
     private cls_Conection CN;
@@ -33,17 +34,20 @@ public class cls_Querys {
             
             PS = CN.getConnection().prepareStatement(SELECT_SQL);
             RS = PS.executeQuery();
-            String [] row = new String[221];
-            int i = 0;
+            int i = 1;
             while(RS.next()){
-                
-                System.out.println(RS.getString("palabra"));
+         
+                System.out.println("\n" + i +" "+ RS.getString("palabra"));
+                i++;
             }
             
             
             
         } catch (SQLException e) {
             System.out.println("Error en la consulta " + e.getMessage());
+        }finally{
+            PS = null;
+            CN.desconectar();
         }
         
         
