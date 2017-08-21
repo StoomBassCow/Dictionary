@@ -15,43 +15,56 @@ import java.sql.SQLException;
  * @author StoomBassCow
  */
 public class cls_Querys {
+
     //private final String SELECT_SQL = "SELECT * FROM palabras WHERE palabra LIKE'%\"+huyen+\"%'"; 
-    private final String SELECT_SQL = "SELECT * FROM palabras"; 
+    private final String SELECT_SQL = "SELECT * FROM palabras";
     private ResultSet RS;
     private PreparedStatement PS;
     private cls_Conection CN;
+    private static String Tipo = "";
+
     
-    public cls_Querys (){
+    public cls_Querys() {
         PS = null;
         CN = new cls_Conection();
     }
-    
-    
-    
-    public void getDatos(){
-        
+
+    public void getDatosDB() {
+
         try {
-            
+
             PS = CN.getConnection().prepareStatement(SELECT_SQL);
             RS = PS.executeQuery();
             int i = 1;
-            while(RS.next()){
-         
-                System.out.println("\n" + i +" "+ RS.getString("palabra"));
+            while (RS.next()) {
+
+                System.out.println("\n" + i + " " + RS.getString("palabra"));
                 i++;
             }
-            
-            
-            
+
         } catch (SQLException e) {
             System.out.println("Error en la consulta " + e.getMessage());
-        }finally{
+        } finally {
             PS = null;
             CN.desconectar();
         }
-        
-        
+
     }
-    
+
+    public String Nominal(String w1) {
+        
+        String SELECT_SQL2 = "SELECT * FROM palabras WHERE Palabra='"+w1;
+        
+        
+        try {
+            PS = CN.getConnection().prepareStatement(SELECT_SQL2);
+            RS = PS.executeQuery();
             
+            System.out.println();
+        } catch (SQLException e) {
+            System.out.println("Error en la consulta " + e.getMessage());
+        }
+
+        return Tipo;
+    }
 }

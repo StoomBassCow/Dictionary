@@ -21,7 +21,7 @@ public class frm_translateForm extends javax.swing.JFrame {
     cls_Methods Test = new cls_Methods();
     cls_Conection con = new cls_Conection();
     cls_Querys QR = new cls_Querys();
-    
+
     public frm_translateForm() {
         initComponents();
         setLocationRelativeTo(null);
@@ -43,6 +43,7 @@ public class frm_translateForm extends javax.swing.JFrame {
         tfld_Result = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,6 +85,13 @@ public class frm_translateForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jButton1.setText("List");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,6 +111,10 @@ public class frm_translateForm extends javax.swing.JFrame {
                                 .addComponent(btn_Clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(tfld_Result, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(169, 169, 169))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +129,9 @@ public class frm_translateForm extends javax.swing.JFrame {
                     .addComponent(btn_Translate))
                 .addGap(18, 18, 18)
                 .addComponent(tfld_Result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jButton1)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,21 +139,28 @@ public class frm_translateForm extends javax.swing.JFrame {
 
     private void btn_TranslateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TranslateActionPerformed
         // TODO add your handling code here:
-        
-         String W = tfld_Word.getText();
+
+        String W = tfld_Word.getText();
         tfld_Word.setText(Test.getWord(W));
+
         Connection reg = con.getConnection();
-        
+
         tfld_Result.setText(W);
-        QR.getDatos();
+
         
-  
+
     }//GEN-LAST:event_btn_TranslateActionPerformed
 
     private void btn_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClearActionPerformed
         // TODO add your handling code here:
         tfld_Word.setText("");
     }//GEN-LAST:event_btn_ClearActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //QR.getDatosDB();
+        Test.sintagmaNominal();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +203,7 @@ public class frm_translateForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Clear;
     private javax.swing.JButton btn_Translate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tfld_Result;
