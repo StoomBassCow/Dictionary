@@ -16,14 +16,12 @@ import java.sql.SQLException;
  */
 public class cls_Querys {
 
-    //private final String SELECT_SQL = "SELECT * FROM palabras WHERE palabra LIKE'%\"+huyen+\"%'"; 
     private final String SELECT_SQL = "SELECT * FROM palabras";
     private ResultSet RS;
     private PreparedStatement PS;
     private cls_Conection CN;
     private static String Tipo = "";
 
-    
     public cls_Querys() {
         PS = null;
         CN = new cls_Conection();
@@ -52,15 +50,11 @@ public class cls_Querys {
     }
 
     public String Nominal(String w1) {
-        
-        String SELECT_SQL2 = "SELECT * FROM palabras WHERE Palabra='"+w1;
-        
-        
+
         try {
-            PS = CN.getConnection().prepareStatement(SELECT_SQL2);
+            PS = CN.getConnection().prepareStatement(SELECT_SQL);
             RS = PS.executeQuery();
-            
-            System.out.println();
+
         } catch (SQLException e) {
             System.out.println("Error en la consulta " + e.getMessage());
         }

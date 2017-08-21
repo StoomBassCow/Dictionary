@@ -23,10 +23,11 @@ public class cls_Methods {
     private ResultSet RS;
     private PreparedStatement PS;
     private cls_Conection CN;
-    
+
     public cls_Methods() {
         PS = null;
         CN = new cls_Conection();
+
     }
 
     /*Con este metodo separamos las palabras mediante un espacio " " y luego, 
@@ -41,21 +42,26 @@ public class cls_Methods {
         for (int i = 0; i < separateWord.length; i++) {
             System.out.println("Posicion " + i + " la palabra es: " + separateWord[i]);
         }
-
+        System.out.println(separateWord[0]);
         return " ";
     }
+    private final String SELECT_SQL = "SELECT * FROM palabras WHERE Palabra ='"+separateWord+"'";
 
     public String sintagmaNominal() {
 
         try {
-            String SQL_SELECT = "SELECT * FROM palabras WHERE Palabra='" + separateWord[0];
-            PS = CN.getConnection().prepareStatement(SQL_SELECT);
+            //String SQL_SELECT = "SELECT * FROM palabras WHERE Palabra='" + separateWord[0]+"'";
+            PS = CN.getConnection().prepareStatement(SELECT_SQL);
             RS = PS.executeQuery();
 
             int i = 1;
             while (RS.next()) {
 
-                System.out.println("\n" + i + " " + RS.getString("palabra"));
+                System.out.println(i + "\n"
+                        + "La palabra es: " + RS.getString("Palabra") + "\n"
+                        + "Tipo: " + RS.getString("SINGPLU") + "\n"
+                        + "El genero es: " + RS.getString("Genero") + "\n"
+                        + "Es un: " + RS.getString("Tipo"));
                 i++;
             }
 
