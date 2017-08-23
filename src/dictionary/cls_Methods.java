@@ -5,7 +5,6 @@
  */
 package dictionary;
 
-import Consultas.cls_Querys;
 import conectionDB.cls_Conection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +16,8 @@ import java.sql.SQLException;
  */
 public class cls_Methods {
 
-    String finalWord = "";
     String separateWord[];
+    int tam = 0;
 
     private ResultSet RS;
     private PreparedStatement PS;
@@ -36,41 +35,65 @@ public class cls_Methods {
     palabras y poder compararlas con la base de datos.
      */
     public String getWord(String Word) {
-
-        separateWord = Word.split(" ");
-
-        for (int i = 0; i < separateWord.length; i++) {
-            System.out.println("Posicion " + i + " la palabra es: " + separateWord[i]);
-        }
-        System.out.println(separateWord[0]);
-        return " ";
-    }
-    private final String SELECT_SQL = "SELECT * FROM palabras WHERE Palabra ='"+separateWord+"'";
-
-    public String sintagmaNominal() {
-
         try {
-            //String SQL_SELECT = "SELECT * FROM palabras WHERE Palabra='" + separateWord[0]+"'";
-            PS = CN.getConnection().prepareStatement(SELECT_SQL);
-            RS = PS.executeQuery();
 
-            int i = 1;
-            while (RS.next()) {
+            separateWord = Word.split(" ");
 
-                System.out.println(i + "\n"
-                        + "La palabra es: " + RS.getString("Palabra") + "\n"
-                        + "Tipo: " + RS.getString("SINGPLU") + "\n"
-                        + "El genero es: " + RS.getString("Genero") + "\n"
-                        + "Es un: " + RS.getString("Tipo"));
-                i++;
+            for (int i = 0; i < separateWord.length; i++) {
+                System.out.println("Posicion " + i + " la palabra es: " + separateWord[i]);
             }
+            tam = separateWord.length;
 
+        } catch (Exception e) {
+
+            System.out.println("El arrary esta vacio: " + e.getMessage());
+        }
+
+        return "";
+    }
+
+    public int count() {
+        tam = separateWord.length;
+        return tam;
+    }
+
+    public String consultaSQL() {
+        try {
+            for (int i = 0; i < count(); i++) {
+                String SQL_SELECT = "SELECT * FROM FullWords WHERE Palabra='" + separateWord[i] + "'";
+                PS = CN.getConnection().prepareStatement(SQL_SELECT);
+
+                RS = PS.executeQuery();
+
+                while (RS.next()) {
+
+                    System.out.println(i + "\n"
+                            + "La palabra es: " + RS.getString("Palabra") + "\n"
+                            + "Tipo: " + RS.getString("SINGPLU") + "\n"
+                            + "El genero es: " + RS.getString("Genero") + "\n"
+                            + "Es un: " + RS.getString("Tipo"));
+
+                }
+            }
         } catch (SQLException e) {
             System.out.println("Error en la consulta " + e.getMessage());
         } finally {
             PS = null;
             CN.desconectar();
         }
+        return "";
+    }
+
+    public String cleanArray() {
+
+        for (int i = 0; i < count(); i++) {
+            System.out.println(separateWord[i]);
+        }
+
+        return "";
+    }
+
+    public String sintagmaNominal() {
 
         return "";
     }
