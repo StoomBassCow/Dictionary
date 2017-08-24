@@ -124,5 +124,8 @@ public class cls_Methods {
 
         return "";
     }
+    public void elFrisbyEsJoto(){
+        System.out.println("El frisby es joto");
+    }
 
 }
