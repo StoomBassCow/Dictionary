@@ -20,7 +20,6 @@ public class frm_translateForm extends javax.swing.JFrame {
     cls_Methods Test = new cls_Methods();
     cls_Conection con = new cls_Conection();
 
-
     public frm_translateForm() {
         initComponents();
         setLocationRelativeTo(null);
@@ -123,9 +122,6 @@ public class frm_translateForm extends javax.swing.JFrame {
 
         String W = tfld_Word.getText();
         tfld_Word.setText(Test.getWord(W));
-
-        //Connection reg = con.getConnection();
-        //tfld_Result.setText(W);
         Test.consultaSQL();
         Test.cleanArray();
 
@@ -135,6 +131,7 @@ public class frm_translateForm extends javax.swing.JFrame {
     private void btn_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClearActionPerformed
         // TODO add your handling code here:
         tfld_Word.setText("");
+        Test.cleanArray();
     }//GEN-LAST:event_btn_ClearActionPerformed
 
     /**

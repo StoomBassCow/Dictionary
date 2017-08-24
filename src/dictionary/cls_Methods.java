@@ -17,6 +17,7 @@ import java.sql.SQLException;
 public class cls_Methods {
 
     String separateWord[];
+    String Data[][];
     int tam = 0;
 
     private ResultSet RS;
@@ -31,7 +32,7 @@ public class cls_Methods {
 
     /*Con este metodo separamos las palabras mediante un espacio " " y luego, 
     pasamos a agregar cada una de las palabras previamente separadas en un
-    arreglo de tipo cadema, el cual nos servira para apilar cada una de estas
+    arreglo de tipo cadena, el cual nos servira para apilar cada una de estas
     palabras y poder compararlas con la base de datos.
      */
     public String getWord(String Word) {
@@ -84,13 +85,19 @@ public class cls_Methods {
         return "";
     }
 
-    public String cleanArray() {
+    public void cleanArray() {
 
         for (int i = 0; i < count(); i++) {
-            System.out.println(separateWord[i]);
+            separateWord[i] = null;
         }
+    }
 
-        return "";
+    public void printMatrix() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < count(); j++) {
+                System.out.println(Data[i][j]);
+            }
+        }
     }
 
     public String sintagmaNominal() {
