@@ -39,12 +39,60 @@ public class AutomatasExample {
         }
         
     }
+    
+    /*---------------------inicio sintagma nominal----------------------------*/
+    
     public void SinNom(){
-        System.out.println("Esta en un nominal");
+        System.out.println("Este sintagma es un nominal");
+         if(cont<car.length){
+            System.out.println("Adverbio de Cantidad");
+            if(car[cont]=='1'){
+            cont++;
+            SiNom1();
+        } else if (car[cont]=='0'){
+        cont ++;
+                System.out.println("Aqui redirecciona a otro sintagma");
+        }
+        }
     }
+    public void SiNom1(){
+        if(cont<car.length){
+            if(car[cont]!='2'){
+            cont++;
+            qAdvError();
+        } else if (car[cont]=='2'){
+        cont ++;
+        SiNom2();
+        System.out.println("Adjetivo");
+        }
+        }
+        
+    }
+    public void SiNom2(){
+        if(cont<car.length){
+            if(car[cont]!='3'){
+            cont++;
+            qAdvError();
+        } else if (car[cont]=='3'){
+        cont ++;
+         System.out.println("Preposicion \n Sintagma Adjetival");
+        }
+        }
+        
+    }
+    
+    /*-----------------------fin sintagma nominal-----------------------------*/
+    
+    /*---------------------inicio sintagma prepocisional----------------------*/
+    
     public void SinPre(){
-        System.out.println("Esta en un nominal");
+        System.out.println("Esta en un prepocisional");
     }
+    
+    
+    /*-----------------------fin sintagma prepocisional-----------------------*/
+    
+     /*--------------------inicio sintagma adjetival--------------------------*/
     public void SinAdj(){
         if(cont<car.length){
             System.out.println("Adverbio de Cantidad");
@@ -81,6 +129,10 @@ public class AutomatasExample {
         }
         }
     }
+    
+     /*--------------------fin sintagma adjetival--------------------------*/
+    
+    
     public void qAdvError(){
         System.out.println("Error en la oración");
     }
