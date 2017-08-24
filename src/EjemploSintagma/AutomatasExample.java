@@ -79,6 +79,7 @@ public class AutomatasExample {
         }
         }
         
+        
     }
     
     /*-----------------------fin sintagma nominal-----------------------------*/
