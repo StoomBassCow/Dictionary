@@ -36,6 +36,8 @@ public class AutomatasExample {
                 System.out.println("Sintagma Adjetival");
         SinAdj();        
         }
+            
+         
         }
         
     }
