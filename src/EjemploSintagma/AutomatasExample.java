@@ -15,7 +15,7 @@ public class AutomatasExample {
     char [] car;
     public static void main(String[] args) {
        AutomatasExample aut = new AutomatasExample();
-       String cadena = "3";//1= Articulo,Demos,Pos 2= Preposicion 3=AdverbioCantidad
+       String cadena = "123";//1= Articulo,Demos,Pos 2= Preposicion 3=AdverbioCantidad
        aut.car = cadena.toCharArray();
        aut.inicio();
     }
