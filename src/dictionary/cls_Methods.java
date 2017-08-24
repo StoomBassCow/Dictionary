@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author StoomBassCow
  */
 public class cls_Methods {
-
+    
     String separateWord[];
     String Data[][];
     int tam = 0;
