@@ -45,8 +45,8 @@ public class AutomatasExample {
     public void SinNom(){
         System.out.println("Este sintagma es un nominal");
          if(cont<car.length){
-            System.out.println("Adverbio de Cantidad");
-            if(car[cont]=='1'){
+            System.out.println("determinante"); //determinante = articulo, demostartivo, posesivo,
+            if(car[cont]=='1'){                 //numeral, indefinido
             cont++;
             SiNom1();
         } else if (car[cont]=='0'){
@@ -63,7 +63,7 @@ public class AutomatasExample {
         } else if (car[cont]=='2'){
         cont ++;
         SiNom2();
-        System.out.println("Adjetivo");
+        System.out.println("pronombre o sustantivo");
         }
         }
         
