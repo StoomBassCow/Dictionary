@@ -15,10 +15,11 @@ import java.sql.SQLException;
  * @author StoomBassCow
  */
 public class cls_Methods {
-    
+
     String separateWord[];
-    String Data[][];
+
     int tam = 0;
+    String a[];
 
     private ResultSet RS;
     private PreparedStatement PS;
@@ -52,6 +53,7 @@ public class cls_Methods {
 
         return "";
     }
+    String Data[][] = new String[8][3];
 
     public int count() {
         tam = separateWord.length;
@@ -65,16 +67,32 @@ public class cls_Methods {
                 PS = CN.getConnection().prepareStatement(SQL_SELECT);
 
                 RS = PS.executeQuery();
-
+                int j = 0;
                 while (RS.next()) {
 
                     System.out.println(i + "\n"
                             + "La palabra es: " + RS.getString("Palabra") + "\n"
                             + "Tipo: " + RS.getString("SINGPLU") + "\n"
                             + "El genero es: " + RS.getString("Genero") + "\n"
-                            + "Es un: " + RS.getString("Tipo"));
+                            + "Es un: " + RS.getString("Tipo") + "\n"
+                            + "En italiano es:" + RS.getString("Italiano"));
 
+                    String Tipo = RS.getString("Tipo");
+                    String Genero = RS.getString("Genero");
+                    String SingPlu = RS.getString("SINGPLU");
+                    String Lenguaje = RS.getString("Italiano");
+
+                    Data[i][0] = Tipo;
+                    Data[i][1] = Genero;
+                    Data[i][2] = SingPlu;
+                   /* Data[i][3] = Lenguaje;*/
+
+                    System.out.println(Data[i][0]);
+                    System.out.println(Data[i][1]);
+                    System.out.println(Data[i][2]);
+                   /* System.out.println(Data[i][3]);*/
                 }
+
             }
         } catch (SQLException e) {
             System.out.println("Error en la consulta " + e.getMessage());
@@ -100,6 +118,11 @@ public class cls_Methods {
         }
     }
 
+    public String SintagmaSelect(String Tipo, String Genero, String SingPlu, String Traduccion) {
+
+        return "";
+    }
+
     public String sintagmaNominal() {
 
         return "";
@@ -123,9 +146,6 @@ public class cls_Methods {
     public String sintagmaVerbal() {
 
         return "";
-    }
-    public void elFrisbyEsJoto(){
-        System.out.println("El frisby es joto Y ANDA de chillona");
     }
 
 }
