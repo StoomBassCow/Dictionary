@@ -95,6 +95,7 @@ public class cls_Methods {
                     }  
                 }
             }
+
                 
                  // automata con 2 Sintagmas Nominal Nominales
                 if (myList.get(i).toString().equals("de")) {
@@ -215,6 +216,34 @@ public class cls_Methods {
                 }
             }
         } while (true);
+        return "";
+
+        
+    }
+
+    public String sintagmaNominal() {
+
+        return "";
+    }
+
+    public String sintagmaPrepocicional() {
+
+        return "";
+    }
+
+    public String sintagmaAdjetival() {
+
+        return "";
+    }
+
+    public String sintagmaAdverbial() {
+
+        return "";
+    }
+
+    public String sintagmaVerbal() {
+
+
         return "";
     }
 }
