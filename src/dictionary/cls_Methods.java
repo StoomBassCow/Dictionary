@@ -126,8 +126,70 @@ public class cls_Methods {
                }
              }
             }
+              
                 
+//-------------------------Sintagma adverbial --------------------------------------------------
+                if (myList.get(i).toString().equals("cuantificador")) {
+                /* el cuantificador es un adberbio de cantidad que modifica el nucleo*/
+                i++;
+                if (myList.get(i).toString().equals("nucleo")) {
+                    i++;
+                     /* el nucleo del adjetival es un adverbio*/
+                    if (myList.get(i).toString().equals("complemento")) {
+                        /* el complemento del adverbial completa el significado del Sin Adver*/
+                        System.out.println("Este es un sintagma adverbial");
+                        Type[i+2] = "SN";
+                         break;
+                    }  
+                }
+            }
                 
+                 // automata con Sintagmas adverbiales
+                if (myList.get(i).toString().equals("verbo")) {
+                i++;
+                if (myList.get(i).toString().equals("Determinante")) {
+                     
+                    i++;
+                    if (myList.get(i).toString().equals("nucleo")) {
+                        /* el nucleo del adjetival puede ser un adverbio o un sujeto*/
+                      System.out.println("aqui el determinante y el nucleo funcionan como SN");
+                    i++;
+                    if (myList.get(i).toString().equals("cuantificador")) {
+                       
+                     System.out.println("este cuantificador da inicio señala el inicio de SAdv");
+                    i++;
+                    if (myList.get(i).toString().equals("adverbio")) {
+                        /* el nucleo de nominal puede ser un sustantivo, pronombre,
+                    o una palabra sustantivada*/
+                        System.out.println("el automata se podria considerar un sintagma verbal");
+                        Type[i+4] = "SV";
+                         break;
+                    }  
+                }
+               }
+             }
+            }
+            
+                //otro automata con adverbial
+                if (myList.get(i).toString().equals("sujeto")) {
+                /* eno se porque pero la primera palabra lo toma como SN*/
+                i++;
+                if (myList.get(i).toString().equals("Verbo")) {
+                    System.out.println("a partir del verbo es un sintagma verbañ");
+                    i++;
+                    if (myList.get(i).toString().equals("adverbio")) {
+                    System.out.println("a partir del verbo es un sintagma verbañ");
+                    /* dentro del sintagma verbal entra otro sintagma adverbial*/
+                    i++;
+                    if (myList.get(i).toString().equals("Sprepocicional")) {
+                        
+                        System.out.println("se puede concatenar un sintagma prepocicional");
+                        Type[i+2] = "SAdver";
+                         break;
+                    }  
+                }
+            } 
+            }
             //Verbal
             if (myList.get(i).toString().equals("Pronombre Posesivo Ateno")) {
                 i++;
