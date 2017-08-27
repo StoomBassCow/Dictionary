@@ -29,7 +29,7 @@ public class cls_Conection {
 
             if (conn != null) {
 
-                //System.out.println("Conexion exitosa");
+                System.out.println("Conexion exitosa");
 
             }
 

@@ -56,7 +56,7 @@ public class cls_Methods {
                 PS = CN.getConnection().prepareStatement(SQL_SELECT);
                 RS = PS.executeQuery();
                 while (RS.next()) {
-                    myList.add(RS.getObject(2).toString());
+                    myList.add(RS.getObject(4).toString());
                     //System.out.println(myList.get(i));
                 }
             }
@@ -76,18 +76,58 @@ public class cls_Methods {
             
             // para poder acceder a cada uno de los indices solo debes de poner 
             //myList.get(i).toString().equals("El tipo de dato que te regresa dependiendo del tipo que sea")
-            //Nominal
-            if (myList.get(i).toString().equals("Pronombre Posesivo Ateno")) {
+           
+            //Sintagma Nominal
+                if (myList.get(i).toString().equals("de")) {
+                /* el de = determinante de nominal puede ser un articulo, 
+                demostraditvo, posesivo, numeral, Indefinidoo exclamativo*/
                 i++;
-                if (myList.get(i).toString().equals("Objeto")) {
+                if (myList.get(i).toString().equals("nucleo")) {
                     i++;
-                    if (myList.get(i).toString().equals("Adjetivo")) {
+                     /* el nucleo de nominal puede ser un sustantivo, pronombre,
+                     o una palabra sustantivada*/
+                    if (myList.get(i).toString().equals("complemento")) {
+                        /* el complemento de nominal puede ser un adjetivo 
+                        calificativo, color, etc incluso otro sintagma nominal*/
                         System.out.println("Este es un sintagma nominal");
                         Type[i+2] = "SN";
                          break;
                     }  
                 }
             }
+                
+                 // automata con 2 Sintagmas Nominal Nominales
+                if (myList.get(i).toString().equals("de")) {
+                /* el de = determinante de nominal puede ser un articulo, 
+                demostraditvo, posesivo, numeral, Indefinidoo exclamativo*/
+                i++;
+                if (myList.get(i).toString().equals("nu")) {
+                    /* el nu = nucleo de nominal puede ser un sustantivo, pronombre,
+                    o una palabra sustantivada*/
+                     System.out.println("hasta aqui es un sintagma nominal");
+                    i++;
+                    if (myList.get(i).toString().equals("verbo")) {
+                    
+                    i++;
+                    if (myList.get(i).toString().equals("cuantificador")) {
+                        /* el cuantificador de nominal puede ser un adjetivo 
+                        calificativo, color, etc incluso puede comenzar otro 
+                        sintagma nominal*/
+                     System.out.println("este cuantificador da inicio a otro SN");
+                    i++;
+                    if (myList.get(i).toString().equals("nucleo")) {
+                        /* el nucleo de nominal puede ser un sustantivo, pronombre,
+                    o una palabra sustantivada*/
+                        System.out.println("y a partir del vervo tenemos un sintagma verbal");
+                        Type[i+4] = "SN";
+                         break;
+                    }  
+                }
+               }
+             }
+            }
+                
+                
             //Verbal
             if (myList.get(i).toString().equals("Pronombre Posesivo Ateno")) {
                 i++;
