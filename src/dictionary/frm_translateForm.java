@@ -111,7 +111,7 @@ public class frm_translateForm extends javax.swing.JFrame {
                     .addComponent(btn_Translate))
                 .addGap(18, 18, 18)
                 .addComponent(tfld_Result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,18 +120,23 @@ public class frm_translateForm extends javax.swing.JFrame {
     private void btn_TranslateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TranslateActionPerformed
         // TODO add your handling code here:
 
-        String W = tfld_Word.getText();
+        
+        
+        try {
+            String W = tfld_Word.getText();
         tfld_Word.setText(Test.getWord(W));
         Test.consultaSQL();
-        Test.cleanArray();
-
+        Test.SintagmaSelect();
+        } catch (Exception e) {
+            System.out.println("No haz ingresado bien los datos");
+        }
+   
 
     }//GEN-LAST:event_btn_TranslateActionPerformed
 
     private void btn_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClearActionPerformed
         // TODO add your handling code here:
         tfld_Word.setText("");
-        Test.cleanArray();
     }//GEN-LAST:event_btn_ClearActionPerformed
 
     /**

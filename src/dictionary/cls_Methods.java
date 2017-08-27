@@ -9,6 +9,9 @@ import conectionDB.cls_Conection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -19,7 +22,8 @@ public class cls_Methods {
     String separateWord[];
 
     int tam = 0;
-    String a[];
+    String Type[];
+    List myList = new ArrayList();
 
     private ResultSet RS;
     private PreparedStatement PS;
@@ -37,62 +41,24 @@ public class cls_Methods {
     palabras y poder compararlas con la base de datos.
      */
     public String getWord(String Word) {
-        try {
-
-            separateWord = Word.split(" ");
-
-            for (int i = 0; i < separateWord.length; i++) {
-                System.out.println("Posicion " + i + " la palabra es: " + separateWord[i]);
-            }
-            tam = separateWord.length;
-
-        } catch (Exception e) {
-
-            System.out.println("El arrary esta vacio: " + e.getMessage());
-        }
-
-        return "";
-    }
-    String Data[][] = new String[8][3];
-
-    public int count() {
+        separateWord = Word.split(" ");
+        /*for (int i = 0; i < separateWord.length; i++) {
+            System.out.println("Posicion " + i + " la palabra es: " + separateWord[i]);
+        }*/
         tam = separateWord.length;
-        return tam;
+        return "";
     }
 
     public String consultaSQL() {
         try {
-            for (int i = 0; i < count(); i++) {
+            for (int i = 0; i < tam; i++) {
                 String SQL_SELECT = "SELECT * FROM FullWords WHERE Palabra='" + separateWord[i] + "'";
                 PS = CN.getConnection().prepareStatement(SQL_SELECT);
-
                 RS = PS.executeQuery();
-                int j = 0;
                 while (RS.next()) {
-
-                    System.out.println(i + "\n"
-                            + "La palabra es: " + RS.getString("Palabra") + "\n"
-                            + "Tipo: " + RS.getString("SINGPLU") + "\n"
-                            + "El genero es: " + RS.getString("Genero") + "\n"
-                            + "Es un: " + RS.getString("Tipo") + "\n"
-                            + "En italiano es:" + RS.getString("Italiano"));
-
-                    String Tipo = RS.getString("Tipo");
-                    String Genero = RS.getString("Genero");
-                    String SingPlu = RS.getString("SINGPLU");
-                    String Lenguaje = RS.getString("Italiano");
-
-                    Data[i][0] = Tipo;
-                    Data[i][1] = Genero;
-                    Data[i][2] = SingPlu;
-                   /* Data[i][3] = Lenguaje;*/
-
-                    System.out.println(Data[i][0]);
-                    System.out.println(Data[i][1]);
-                    System.out.println(Data[i][2]);
-                   /* System.out.println(Data[i][3]);*/
+                    myList.add(RS.getObject(2).toString());
+                    //System.out.println(myList.get(i));
                 }
-
             }
         } catch (SQLException e) {
             System.out.println("Error en la consulta " + e.getMessage());
@@ -103,49 +69,50 @@ public class cls_Methods {
         return "";
     }
 
-    public void cleanArray() {
-
-        for (int i = 0; i < count(); i++) {
-            separateWord[i] = null;
-        }
-    }
-
-    public void printMatrix() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < count(); j++) {
-                System.out.println(Data[i][j]);
+    public String SintagmaSelect() {
+        int i = 0;     
+        do {
+            
+            
+            // para poder acceder a cada uno de los indices solo debes de poner 
+            //myList.get(i).toString().equals("El tipo de dato que te regresa dependiendo del tipo que sea")
+            //Nominal
+            if (myList.get(i).toString().equals("Pronombre Posesivo Ateno")) {
+                i++;
+                if (myList.get(i).toString().equals("Objeto")) {
+                    i++;
+                    if (myList.get(i).toString().equals("Adjetivo")) {
+                        System.out.println("Este es un sintagma nominal");
+                        Type[i+2] = "SN";
+                         break;
+                    }  
+                }
             }
-        }
-    }
-
-    public String SintagmaSelect(String Tipo, String Genero, String SingPlu, String Traduccion) {
-
+            //Verbal
+            if (myList.get(i).toString().equals("Pronombre Posesivo Ateno")) {
+                i++;
+                if (myList.get(i).toString().equals("Objeto")) {
+                    i++;
+                    if (myList.get(i).toString().equals("Adjetivo")) {
+                        System.out.println("Este es un sintagma nominal");
+                        Type[i+2] = "SN";
+                         break;
+                    }  
+                }
+            }
+            //Verbal
+            if (myList.get(i).toString().equals("Pronombre Posesivo Ateno")) {
+                i++;
+                if (myList.get(i).toString().equals("Objeto")) {
+                    i++;
+                    if (myList.get(i).toString().equals("Adjetivo")) {
+                        System.out.println("Este es un sintagma nominal");
+                        Type[i+2] = "SN";
+                         break;
+                    }  
+                }
+            }
+        } while (true);
         return "";
     }
-
-    public String sintagmaNominal() {
-
-        return "";
-    }
-
-    public String sintagmaPrepocicional() {
-
-        return "";
-    }
-
-    public String sintagmaAdjetival() {
-
-        return "";
-    }
-
-    public String sintagmaAdverbial() {
-
-        return "";
-    }
-
-    public String sintagmaVerbal() {
-
-        return "";
-    }
-
 }
