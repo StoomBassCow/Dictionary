@@ -72,7 +72,6 @@ public class cls_Methods {
     public String SintagmaSelect() {
         int i = 0;
         do {
-
             // para poder acceder a cada uno de los indices solo debes de poner 
             //myList.get(i).toString().equals("El tipo de dato que te regresa dependiendo del tipo que sea")
             //Sintagma Nominal
