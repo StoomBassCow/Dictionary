@@ -14,7 +14,6 @@ import java.sql.SQLException;
  * @author StoomBassCow
  */
 public class cls_Conection {
-
     private static Connection conn;
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String USER = "root";
